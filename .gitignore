@@ -1,3 +1,8 @@
+# Customize gitignore
+Corel5k/*
+*.ipynb*
+*.npy
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
