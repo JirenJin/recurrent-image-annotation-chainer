@@ -55,3 +55,19 @@ class RIA(Chain):
         mid = F.relu(self.fc1(h))
         output = self.fc2(mid)
         return output
+
+
+def compute_loss(self, inputs, targets):
+    """Compute cross-entropy loss."""
+    loss = 0
+    correct_pred = 0
+    for input, target in zip(inputs, targets):
+        output = RIA(input)
+        loss += F.loss.softmax_cross_entropy.softmax_cross_entropy(output, target)
+        pred = output.data.argmax(1)
+        if pred == target.data:
+            correct_pred += 1
+    loss /= len(targets)
+    # accuracy over one training example/image
+    accuracy = correct_pred / len(targets)
+    return loss, accuracy
