@@ -2,9 +2,11 @@ import json
 import operator
 
 
-with open('Corel5k/dictionary.json') as f:
+dataset = 'iaprtc12'
+
+with open(dataset + '/dictionary.json') as f:
     dictionary = json.load(f)
-with open('Corel5k/train_annotations.json') as f:
+with open(dataset + '/train_annotations.json') as f:
     train_annotations = json.load(f)
     
 # label is 1-index, while python is 0-index
@@ -20,8 +22,8 @@ rare_first_train_annotations = [sorted(annotation, key=lambda label: sorted_labe
 
 frequent_first_train_annotations = [sorted(annotation, key=lambda label: sorted_labels[::-1].index(label)) for annotation in train_annotations]
 
-with open('Corel5k/rare_first_train_annotations.json', 'w') as f:
+with open(dataset + '/rare_first_train_annotations.json', 'w') as f:
     json.dump(rare_first_train_annotations, f)
     
-with open('Corel5k/frequent_first_train_annotations.json', 'w') as f:
+with open(dataset + '/frequent_first_train_annotations.json', 'w') as f:
     json.dump(frequent_first_train_annotations, f)
